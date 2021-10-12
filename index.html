@@ -9,20 +9,24 @@
   </head>
   
   <body>
-    <div class="input">
-      <p>■入力欄<br>
-        <textarea class="inputArea" placeholder="入力してください。"></textarea></p>
+    <div class="left">
+      <div class="input">
+        <p>■入力欄<br>
+          <textarea class="inputArea" placeholder="入力してください。"></textarea></p>
+      </div>
+
+      <div class="button">
+        <button class="extractButton" onclick="outputResult()">抽出</button>
+      </div>
     </div>
 
-    <div class="button">
-      <button class="extractButton" onclick="outputResult()">抽出</button>
-    </div>
-
-    <div class="result">
-      <form name="resultForm">
-        <p>■出力結果<br>
-          <textarea id="resultArea" name="resultArea" class="resultArea" placeholder="出力結果"></textarea></p>
-      </form>
+    <div class="right">
+      <div class="result">
+        <form name="resultForm">
+          <p>■出力結果<br>
+            <textarea id="resultArea" name="resultArea" class="resultArea" placeholder="出力結果"></textarea></p>
+        </form>
+      </div>
     </div>
   </body>
 </html>

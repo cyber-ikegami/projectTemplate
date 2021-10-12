@@ -3,21 +3,14 @@ body{
   height: 100%;
   background-color: #CCFFCC
 }
-.input{
+.left{
   display: inline-block;
   width: 50%;
-  /* height: 70%; */
 }
-.result{
-  display: inline-block;
-  width: 40%;
-  /* height: 100%; */
-}
-.button{
+.right{
   display: inline-block;
   vertical-align: top;
-  width: 50%;
-  /* height: 30%; */
+  width: 40%;
 }
 .inputArea {
   width: 90%;
@@ -26,4 +19,4 @@ body{
 .resultArea {
   width: 90%;
   height: 500px;
-}
+} 
