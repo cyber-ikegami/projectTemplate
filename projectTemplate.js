@@ -3,6 +3,7 @@ function inputRequiredCheck() {
 	// const selectValue = window.getSelection();
 	const inputAreaValue = document.getElementById("inputArea").value;
 	const extractButton = document.getElementById("extractButton");
+	const resultArea = document.getElementById("resultArea");
 	
 	extractButton.disabled = (inputAreaValue == "");
 	resultArea.disabled = (inputAreaValue == "");
