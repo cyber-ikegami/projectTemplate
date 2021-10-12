@@ -17,12 +17,12 @@ html, body{
 }
 .right{
   display: inline-block;
-  vertical-align: top;
   width: 50%;
 }
 .inputArea {
   width: 90%;
   height: 500px;
+  font-size: 30;
 }
 .resultArea {
   width: 90%;
