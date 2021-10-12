@@ -13,11 +13,12 @@ html, body{
 }
 
 p, textarea, button{
-  font-size: 30;
+  font-size: 15px;
 }
 
 .left{
   display: inline-block;
+  vertical-align: top;
   width: 50%;
 }
 .right{
