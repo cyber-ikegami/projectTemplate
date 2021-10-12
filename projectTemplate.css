@@ -11,6 +11,11 @@ html, body{
   background-color: #CCFFCC;
   position: relative;
 }
+
+p, textarea, button{
+  font-size: 30;
+}
+
 .left{
   display: inline-block;
   width: 50%;
@@ -22,7 +27,6 @@ html, body{
 .inputArea {
   width: 90%;
   height: 500px;
-  font-size: 30;
 }
 .resultArea {
   width: 90%;
