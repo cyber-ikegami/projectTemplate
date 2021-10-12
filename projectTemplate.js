@@ -1,12 +1,22 @@
+//入力必須チェック
+function inputRequiredCheck() {
+	// const selectValue = window.getSelection();
+	const inputAreaValue = document.getElementById("inputArea").value;
+	const extractButton = document.getElementById("extractButton");
+	
+	extractButton.disabled = (inputAreaValue == "");
+	resultArea.disabled = (inputAreaValue == "");
+}
+
 // 出力処理
 function outputResult() {
-	const value = window.getSelection();
-	const resultAreaValue = document.getElementById("resultArea").value;
+	const selectValue = window.getSelection();
+	let resultArea = document.getElementById("resultArea");
 
     resultForm.resultArea.value = 
-	`${resultAreaValue}
-	2021/mm/dd 所属）名前
+	`${resultArea.value}2021/mm/dd 所属）名前
 	
-	${value}
-	--------------------------------------------` .replace(/[ \t\r]+/g, "");
+	${selectValue}
+	--------------------------------------------
+	` .replace(/[ \t\r]+/g, "");
 }
