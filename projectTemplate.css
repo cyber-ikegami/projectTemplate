@@ -19,23 +19,23 @@ p, textarea, button{
 .left{
   display: inline-block;
   vertical-align: top;
-  width: 45%;
+  width: calc(50% - 40px);
 }
 .center{
   display: inline-block;
   vertical-align: top;
-  width: 10%;
+  width: 80px;
 }
 .right{
   display: inline-block;
   margin-left: auto;
-  width: 45%;
+  width: calc(50% - 40px);
 }
 .inputArea {
   resize: none;
   width: auto;
-  margin: 10px;
   height: 500px;
+  margin: 10px;
 }
 .resultArea {
   resize: none;
@@ -44,8 +44,8 @@ p, textarea, button{
   height: 500px;
 } 
 .extractButton{
-  width: 80px;
+  width: 100%;
 }
 .resetButton {
-  width: 80px;
+  width: 100%;
 }
