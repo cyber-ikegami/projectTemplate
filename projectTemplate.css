@@ -19,17 +19,33 @@ p, textarea, button{
 .left{
   display: inline-block;
   vertical-align: top;
-  width: 50%;
+  width: 45%;
+}
+.center{
+  display: inline-block;
+  vertical-align: top;
+  width: 10%;
 }
 .right{
   display: inline-block;
-  width: 50%;
+  margin-left: auto;
+  width: 45%;
 }
 .inputArea {
-  width: 90%;
+  resize: none;
+  width: auto;
+  margin: 10px;
   height: 500px;
 }
 .resultArea {
+  resize: none;
+  margin: 10px;
   width: 90%;
   height: 500px;
 } 
+.extractButton{
+  width: 80px;
+}
+.resetButton {
+  width: 80px;
+}
