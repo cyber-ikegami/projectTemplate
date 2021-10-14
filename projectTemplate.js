@@ -9,6 +9,12 @@ function inputRequiredCheck() {
 	resultArea.disabled = (inputAreaValue == "");
 }
 
+// リセット処理
+// 選択した文字もリセットしたい～～
+function resetForm() {
+	document.getElementById("resultArea").value = "";
+}
+
 // 出力処理
 function outputResult() {
 	const selectValue = window.getSelection();
