@@ -11,7 +11,9 @@ html, body{
   background-color: #CCFFCC;
   position: relative;
 }
-
+p{
+  height: 100%;
+}
 p, textarea, button{
   font-size: 15px;
 }
@@ -19,33 +21,52 @@ p, textarea, button{
 .left{
   display: inline-block;
   vertical-align: top;
+  text-align: left;
   width: calc(50% - 40px);
+  height: 90%;
 }
-.center{
-  display: inline-block;
-  vertical-align: top;
-  width: 80px;
-}
-.right{
-  display: inline-block;
-  margin-left: auto;
-  width: calc(50% - 40px);
+.input {
+  width: 100%;
+  height: 100%;
 }
 .inputArea {
   resize: none;
-  width: auto;
-  height: 500px;
-  margin: 10px;
+  width: calc(100% - 20px);
+  height: 95%;
+  margin-left: 10px;
 }
-.resultArea {
-  resize: none;
-  margin: 10px;
-  width: 90%;
-  height: 500px;
-} 
+
+.center{
+  display: inline-block;
+  vertical-align: middle;
+  width: 80px;
+  height: 90%;
+}
 .extractButton{
   width: 100%;
 }
 .resetButton {
   width: 100%;
 }
+
+.right{
+  display: inline-block;
+  margin-left: auto;
+  text-align: left;
+  width: calc(50% - 40px);
+  height: 90%;
+}
+.result {
+  width: 100%;
+  height: 100%;
+}
+.resultForm {
+  width: 100%;
+  height: 100%;
+}
+.resultArea {
+  resize: none;
+  margin-left: 10px;
+  width: calc(100% - 20px);
+  height: 95%;
+} 
