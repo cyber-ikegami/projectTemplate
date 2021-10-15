@@ -23,7 +23,7 @@ p, textarea, button{
   vertical-align: top;
   text-align: left;
   width: calc(50% - 40px);
-  height: 90%;
+  height: 100%;
 }
 .input {
   width: 100%;
@@ -39,9 +39,12 @@ p, textarea, button{
 
 .center{
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   width: 80px;
-  height: 90%;
+  height: 100%;
+  display: inline-flex;
+  flex-flow: column;
+  justify-content: center;
 }
 .extractButton{
   width: 100%;
@@ -55,7 +58,7 @@ p, textarea, button{
   margin-left: auto;
   text-align: left;
   width: calc(50% - 40px);
-  height: 90%;
+  height: 100%;
 }
 .result {
   width: 100%;
