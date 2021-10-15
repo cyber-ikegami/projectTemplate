@@ -31,9 +31,10 @@ p, textarea, button{
 }
 .inputArea {
   resize: none;
-  width: calc(100% - 20px);
-  height: 95%;
   margin-left: 10px;
+  margin-bottom: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 33px);
 }
 
 .center{
@@ -67,6 +68,7 @@ p, textarea, button{
 .resultArea {
   resize: none;
   margin-left: 10px;
+  margin-bottom: 10px;
   width: calc(100% - 20px);
-  height: 95%;
+  height: calc(100% - 33px);
 } 
