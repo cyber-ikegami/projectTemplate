@@ -22,13 +22,13 @@
         <button id="extractButton" class="extractButton" onclick="outputResult()" disabled>抽出</button>
       </div>
       <div class="reset">
-        <button id="resetButton" class="resetButton" onclick="resetForm()">リセット</button>
+        <button id="resetButton" class="resetButton" onclick="resetForm()" disabled>リセット</button>
       </div>
     </div>
 
     <div class="right">
       <div class="result">
-        <form name="resultForm">
+        <form name="resultForm" class="resultForm">
           <p>■出力結果<br>
             <textarea id="resultArea" class="resultArea" placeholder="出力結果" disabled></textarea></p>
         </form>
