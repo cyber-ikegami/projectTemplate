@@ -21,14 +21,33 @@ function outputResult() {
 	const selectValue = window.getSelection();
 	const resetButton = document.getElementById("resetButton");
 	let resultArea = document.getElementById("resultArea");
+	
+	// システム日付を取得
+	let today = new Date(); 
+	const year = today.getFullYear();
+	const month = today.getMonth()+1;
+	const day = today.getDate();
+	
 	resultArea.disabled = false;
 	
     resultForm.resultArea.value = 
-	`${resultArea.value}2021/mm/dd 所属）名前
+	`${resultArea.value}${year}/${month}/${day}　所属）名前
 	
 	${selectValue}
 	--------------------------------------------
 	` .replace(/[ \t\r]+/g, "");
 
 	resetButton.disabled = (resultArea.value == "");
+}
+
+// 右クリックで抽出ボタン押下時と同じ処理をするようにする
+document.oncontextmenu = function () {
+	const extractButton = document.getElementById("extractButton");
+	// 抽出ボタンが活性化状態であれば
+	if(extractButton.disabled == false){
+		outputResult();
+	}
+
+	// コンテキストメニュー無効
+	return false;
 }
