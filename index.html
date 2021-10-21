@@ -9,6 +9,21 @@
   </head>
   
   <body>
+    <div class="blind" id="blind">
+      <div class="dialog">
+        <p>■日付<br>
+          <input type="text" id="date" placeholder="例）yyyy/mm/dd" ><br>
+        ■所属<br>
+          <input type="text" id="affiliation" placeholder="例）CSC"><br>
+        ■名前<br>
+          <input type="text" id="name" placeholder="例）〇〇様"></p>
+        <div class="dialogButton">
+          <button id="cancelButton" class="cancelButton" onclick="resetDialog()">キャンセル</button>
+          <button id="fixedButton" class="fixedButton" onclick="getInputValue()">確定</button>
+        </div>
+      </div>
+    </div>
+
     <div class="left">
       <div class="input">
         <p>■入力欄<br>
@@ -19,7 +34,7 @@
     
     <div class="center">
       <div class="extract">
-        <button id="extractButton" class="extractButton" onclick="outputResult()" disabled>抽出</button>
+        <button id="extractButton" class="extractButton" onclick="clickExtract()" disabled>抽出</button>
       </div>
       <div class="reset">
         <button id="resetButton" class="resetButton" onclick="resetForm()" disabled>リセット</button>
