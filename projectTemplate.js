@@ -6,12 +6,14 @@ function inputRequiredCheck() {
 	extractButton.disabled = (inputAreaValue == "");
 }
 
-
 // 抽出ボタン押下時
 function clickExtract() {
 	document.getElementById('blind').style.display = 'block';
-}
+	
+	const selectValue = window.getSelection();
 
+	return selectValue;
+}
 
 // 右クリックで抽出ボタン押下時と同じ処理をするようにする
 document.oncontextmenu = function () {
@@ -59,13 +61,10 @@ function getInputValue(){
 
 // 出力処理
 function outputResult(date, affiliation, name) {
-	const selectValue = window.getSelection();
+	// const selectValue = window.getSelection();
 	const resetButton = document.getElementById("resetButton");
 
 	resultArea.disabled = false;
-
-	// ダイアログ初期化
-	resetDialog();
 	
     resultForm.resultArea.value = 
 	`${resultArea.value}${date}　${affiliation}）${name}
@@ -73,8 +72,10 @@ function outputResult(date, affiliation, name) {
 	${selectValue}
 	--------------------------------------------
 	` .replace(/[ \t\r]+/g, "");
-
+	
 	resetButton.disabled = (resultArea.value == "");
+	// ダイアログ初期化
+	resetDialog();
 }
 
 
@@ -84,4 +85,5 @@ function resetDialog() {
 	document.getElementById("affiliation").value = "";
 	document.getElementById("name").value = "";
 	document.getElementById('blind').style.display = 'none';
+	// SELECT_VALUE = "";
 }
