@@ -1,3 +1,5 @@
+let SELECT_VALUE = "";
+
 //入力必須チェック
 function inputRequiredCheck() {
 	const inputAreaValue = document.getElementById("inputArea").value;
@@ -6,12 +8,13 @@ function inputRequiredCheck() {
 	extractButton.disabled = (inputAreaValue == "");
 }
 
-
 // 抽出ボタン押下時
 function clickExtract() {
 	document.getElementById('blind').style.display = 'block';
+	
+	const selectValue = window.getSelection();
+	SELECT_VALUE = selectValue.toString();
 }
-
 
 // 右クリックで抽出ボタン押下時と同じ処理をするようにする
 document.oncontextmenu = function () {
@@ -59,22 +62,20 @@ function getInputValue(){
 
 // 出力処理
 function outputResult(date, affiliation, name) {
-	const selectValue = window.getSelection();
 	const resetButton = document.getElementById("resetButton");
 
 	resultArea.disabled = false;
-
-	// ダイアログ初期化
-	resetDialog();
 	
     resultForm.resultArea.value = 
 	`${resultArea.value}${date}　${affiliation}）${name}
 	
-	${selectValue}
+	${SELECT_VALUE}
 	--------------------------------------------
 	` .replace(/[ \t\r]+/g, "");
-
+	
 	resetButton.disabled = (resultArea.value == "");
+	// ダイアログ初期化
+	resetDialog();
 }
 
 
