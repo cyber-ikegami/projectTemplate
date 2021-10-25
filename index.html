@@ -12,11 +12,14 @@
     <div class="blind" id="blind">
       <div class="dialog">
         <p>■日付<br>
-          <input type="text" id="date" value=""><br>
-        ■所属<br>
-          <input type="text" id="affiliation" placeholder="例）CSC"><br>
+          <input type="text" id="date" list="dateList">
+            <datalist id="dateList"></datalist><br>
+          ■所属<br>
+          <input type="text" id="affiliation" placeholder="例）CSC" list="affiliationList">
+            <datalist id="affiliationList"></datalist><br>
         ■名前<br>
-          <input type="text" id="name" placeholder="例）〇〇様"></p>
+          <input type="text" id="name" placeholder="例）〇〇様" list="nameList">
+            <datalist id="nameList"></datalist></p>
         <div class="dialogButton">
           <button id="cancelButton" class="cancelButton" onclick="resetDialog()">キャンセル</button>
           <button id="fixedButton" class="fixedButton" onclick="getInputValue()">確定</button>
