@@ -14,6 +14,14 @@ function clickExtract() {
 	
 	const selectValue = window.getSelection();
 	SELECT_VALUE = selectValue.toString();
+
+	// システム日付を初期値に設定
+	let today = new Date(); 
+	const year = today.getFullYear();
+	const month = today.getMonth()+1;
+	const day = today.getDate();
+	const dateValue =`${year}/${month}/${day}`;
+	document.getElementById("date").value = dateValue;
 }
 
 // 右クリックで抽出ボタン押下時と同じ処理をするようにする
@@ -46,15 +54,6 @@ function getInputValue(){
 	const affiliationValue = document.getElementById("affiliation").value;
 	const nameValue = document.getElementById("name").value;
 
-	// 日付が空白であれば、初期値としてシステム日付を設定
-	if(dateValue == ""){
-		let today = new Date(); 
-		const year = today.getFullYear();
-		const month = today.getMonth()+1;
-		const day = today.getDate();
-		dateValue =`${year}/${month}/${day}`;
-	}
-
 	// 出力処理
 	outputResult(dateValue, affiliationValue, nameValue);
 }
@@ -65,9 +64,13 @@ function outputResult(date, affiliation, name) {
 	const resetButton = document.getElementById("resetButton");
 
 	resultArea.disabled = false;
+
+	if(affiliation != ""){
+		affiliation = `${affiliation}）`;
+	}
 	
     resultForm.resultArea.value = 
-	`${resultArea.value}${date}　${affiliation}）${name}
+	`${resultArea.value}${date}　${affiliation}${name}
 	
 	${SELECT_VALUE}
 	--------------------------------------------
