@@ -13,6 +13,7 @@ window.onload = function(){
 	DEFAULT_DATE =`${year}/${month}/${day}`;
 }
 
+
 //入力必須チェック
 function inputRequiredCheck() {
 	const inputAreaValue = document.getElementById("inputArea").value;
@@ -20,6 +21,7 @@ function inputRequiredCheck() {
 	
 	extractButton.disabled = (inputAreaValue == "");
 }
+
 
 // 抽出ボタン押下時
 function clickExtract() {
@@ -30,6 +32,7 @@ function clickExtract() {
 	
 	document.getElementById("date").value = DEFAULT_DATE;
 }
+
 
 // 右クリックで抽出ボタン押下時と同じ処理をするようにする
 document.oncontextmenu = function () {
@@ -50,6 +53,20 @@ function resetForm() {
 	const resultArea = document.getElementById("resultArea");
 	resetButton.disabled = true;
 	resultArea.disabled = true;
+
+	// 日付・所属・名前optionのリセット
+	const dateList = document.getElementById("dateList");
+	const affiliationList = document.getElementById("affiliationList");
+	const nameList = document.getElementById("nameList");
+	while(dateList.lastChild){
+		dateList.removeChild(dateList.lastChild);
+	}
+	while(affiliationList.lastChild){
+		affiliationList.removeChild(affiliationList.lastChild);
+	}
+	while(nameList.lastChild){
+		nameList.removeChild(nameList.lastChild);
+	}
 	
 	document.getElementById("resultArea").value = "";
 }
@@ -69,6 +86,27 @@ function getInputValue(){
 // 出力処理
 function outputResult(date, affiliation, name) {
 	const resetButton = document.getElementById("resetButton");
+
+	// 日付データリストのoption追加
+	const dateList = document.getElementById("dateList");
+	const dateOption = document.createElement('option');
+	dateOption.value = date;
+	dateOption.textContent = date;
+	dateList.appendChild(dateOption);
+
+	// 所属データリストのoption追加
+	const affiliationList = document.getElementById("affiliationList");
+	const affiliationOption = document.createElement('option');
+	affiliationOption.value = affiliation;
+	affiliationOption.textContent = affiliation;
+	affiliationList.appendChild(affiliationOption);
+
+	// 名前データリストのoption追加
+	const nameList = document.getElementById("nameList");
+	const nameOption = document.createElement('option');
+	nameOption.value = name;
+	nameOption.textContent = name;
+	nameList.appendChild(nameOption);
 	
 	resultArea.disabled = false;
 	
@@ -80,11 +118,12 @@ function outputResult(date, affiliation, name) {
 	DEFAULT_DATE = date;
 	
     resultForm.resultArea.value = 
-	`${resultArea.value}${date}　${affiliation}${name}
+	`${resultArea.value}${date} ${affiliation}${name}
 	
 	${SELECT_VALUE}
+
 	--------------------------------------------
-	` .replace(/[ \t\r]+/g, "");
+	`.replace(/[\t\r]+/g, "");
 	
 	resetButton.disabled = (resultArea.value == "");
 
