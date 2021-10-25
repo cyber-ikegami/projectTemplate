@@ -1,4 +1,17 @@
+// 選択している箇所
 let SELECT_VALUE = "";
+
+// 日付初期値
+let DEFAULT_DATE = "";
+
+// システム日付を初期値に設定
+window.onload = function(){
+	let today = new Date(); 
+	const year = today.getFullYear();
+	const month = today.getMonth()+1;
+	const day = today.getDate();
+	DEFAULT_DATE =`${year}/${month}/${day}`;
+}
 
 //入力必須チェック
 function inputRequiredCheck() {
@@ -14,14 +27,8 @@ function clickExtract() {
 	
 	const selectValue = window.getSelection();
 	SELECT_VALUE = selectValue.toString();
-
-	// システム日付を初期値に設定
-	let today = new Date(); 
-	const year = today.getFullYear();
-	const month = today.getMonth()+1;
-	const day = today.getDate();
-	const dateValue =`${year}/${month}/${day}`;
-	document.getElementById("date").value = dateValue;
+	
+	document.getElementById("date").value = DEFAULT_DATE;
 }
 
 // 右クリックで抽出ボタン押下時と同じ処理をするようにする
@@ -62,12 +69,15 @@ function getInputValue(){
 // 出力処理
 function outputResult(date, affiliation, name) {
 	const resetButton = document.getElementById("resetButton");
-
+	
 	resultArea.disabled = false;
-
+	
 	if(affiliation != ""){
 		affiliation = `${affiliation}）`;
 	}
+
+	// 日付初期値に現在入力されている日付を代入
+	DEFAULT_DATE = date;
 	
     resultForm.resultArea.value = 
 	`${resultArea.value}${date}　${affiliation}${name}
@@ -77,6 +87,7 @@ function outputResult(date, affiliation, name) {
 	` .replace(/[ \t\r]+/g, "");
 	
 	resetButton.disabled = (resultArea.value == "");
+
 	// ダイアログ初期化
 	resetDialog();
 }
