@@ -90,9 +90,18 @@ function outputResult(date, affiliation, name) {
 	// 日付データリストのoption追加
 	const dateList = document.getElementById("dateList");
 	const dateOption = document.createElement('option');
-	dateOption.value = date;
-	dateOption.textContent = date;
-	dateList.appendChild(dateOption);
+	let dateOptionList = new Array();
+	
+	alert(dateList.children[0].innerHTML);
+	for(let x = 0; x < dateList.children.length; x++){
+		dateOptionList.add(dateList[x].value);
+	}
+	if(!dateOptionList.includes(date)){
+		dateOption.value = date;
+		dateOption.textContent = date;
+		dateList.appendChild(dateOption);
+	}
+
 
 	// 所属データリストのoption追加
 	const affiliationList = document.getElementById("affiliationList");
