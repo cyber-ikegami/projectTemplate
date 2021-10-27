@@ -4,13 +4,40 @@ let SELECT_VALUE = "";
 // 日付初期値
 let DEFAULT_DATE = "";
 
-// システム日付を初期値に設定
 window.onload = function(){
+	resetForm();
+}
+
+
+// リセット処理
+function resetForm() {
+	const resetButton = document.getElementById("resetButton");
+	const resultArea = document.getElementById("resultArea");
+	resetButton.disabled = true;
+	resultArea.disabled = true;
+
+	// システム日付を初期値に設定
 	let today = new Date(); 
 	const year = today.getFullYear();
 	const month = today.getMonth()+1;
 	const day = today.getDate();
 	DEFAULT_DATE =`${year}/${month}/${day}`;
+
+	// 日付・所属・名前optionのリセット
+	const dateList = document.getElementById("dateList");
+	const affiliationList = document.getElementById("affiliationList");
+	const nameList = document.getElementById("nameList");
+	while(dateList.lastChild){
+		dateList.removeChild(dateList.lastChild);
+	}
+	while(affiliationList.lastChild){
+		affiliationList.removeChild(affiliationList.lastChild);
+	}
+	while(nameList.lastChild){
+		nameList.removeChild(nameList.lastChild);
+	}
+	
+	document.getElementById("resultArea").value = "";
 }
 
 
@@ -47,31 +74,6 @@ document.oncontextmenu = function () {
 }
 
 
-// リセット処理
-function resetForm() {
-	const resetButton = document.getElementById("resetButton");
-	const resultArea = document.getElementById("resultArea");
-	resetButton.disabled = true;
-	resultArea.disabled = true;
-
-	// 日付・所属・名前optionのリセット
-	const dateList = document.getElementById("dateList");
-	const affiliationList = document.getElementById("affiliationList");
-	const nameList = document.getElementById("nameList");
-	while(dateList.lastChild){
-		dateList.removeChild(dateList.lastChild);
-	}
-	while(affiliationList.lastChild){
-		affiliationList.removeChild(affiliationList.lastChild);
-	}
-	while(nameList.lastChild){
-		nameList.removeChild(nameList.lastChild);
-	}
-	
-	document.getElementById("resultArea").value = "";
-}
-
-
 // 入力内容(日付/所属/氏名)の取得
 function getInputValue(){
 	let dateValue = document.getElementById("date").value;
@@ -92,9 +94,9 @@ function outputResult(date, affiliation, name) {
 	const dateOption = document.createElement('option');
 	let dateOptionList = new Array();
 	
-	alert(dateList.children[0].innerHTML);
+	// alert(dateList.children[0].innerHTML);
 	for(let x = 0; x < dateList.children.length; x++){
-		dateOptionList.add(dateList[x].value);
+		dateOptionList.push(dateList.children[x].value);
 	}
 	if(!dateOptionList.includes(date)){
 		dateOption.value = date;
