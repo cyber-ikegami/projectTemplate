@@ -94,7 +94,6 @@ function outputResult(date, affiliation, name) {
 	const dateOption = document.createElement('option');
 	let dateOptionList = new Array();
 	
-	// alert(dateList.children[0].innerHTML);
 	for(let x = 0; x < dateList.children.length; x++){
 		dateOptionList.push(dateList.children[x].value);
 	}
@@ -104,20 +103,33 @@ function outputResult(date, affiliation, name) {
 		dateList.appendChild(dateOption);
 	}
 
-
 	// 所属データリストのoption追加
 	const affiliationList = document.getElementById("affiliationList");
 	const affiliationOption = document.createElement('option');
-	affiliationOption.value = affiliation;
-	affiliationOption.textContent = affiliation;
-	affiliationList.appendChild(affiliationOption);
+	let affiliationOptionList = new Array();
+
+	for(let y = 0; y < affiliationList.children.length; y++){
+		affiliationOptionList.push(affiliationList.children[y].value);
+	}
+	if(!affiliationOptionList.includes(affiliation)){
+		affiliationOption.value = affiliation;
+		affiliationOption.textContent = affiliation;
+		affiliationList.appendChild(affiliationOption);
+	}
 
 	// 名前データリストのoption追加
 	const nameList = document.getElementById("nameList");
 	const nameOption = document.createElement('option');
-	nameOption.value = name;
-	nameOption.textContent = name;
-	nameList.appendChild(nameOption);
+	let nameOptionList = new Array();
+
+	for(let z = 0; z < nameList.children.length; z++){
+		nameOptionList.push(nameList.children[z].value);
+	}
+	if(!nameOptionList.includes(name)){
+		nameOption.value = name;
+		nameOption.textContent = name;
+		nameList.appendChild(nameOption);
+	}
 	
 	resultArea.disabled = false;
 	
